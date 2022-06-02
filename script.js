@@ -363,12 +363,12 @@ button.addEventListener('click', () => {
             text.remove()
         })
         writeSymbol()
+        const sum = elements[order].answer.reduce((partialSum, a) => partialSum + a, 0);
+        layers.innerText = `Elektronid: ${sum}`
         wrong.innerText = ''
         level.innerText = `Level ${order+1}/30`
         elementText.innerText = `Element: ${elements[order].name}`
         progressBar.setAttribute('style', `width: ${100/30 * order}%`)
-        const sum = elements[order].answer.reduce((partialSum, a) => partialSum + a, 0);
-        layers.innerText = `Elektronid: ${sum}`
         
 
 
