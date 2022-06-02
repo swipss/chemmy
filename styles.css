@@ -122,8 +122,11 @@ a {
 }
 
 .progressBar {
-    background: green;
+    background: #52A55F;
     width: 0%;
     height: 10px;
     border-radius: 20px;
+}
+.forms p {
+    margin: 10px 0
 }
