@@ -7,6 +7,9 @@ const inputs = document.querySelectorAll('input')
 const button = document.getElementById('check')
 const level = document.getElementById('level')
 const elementText = document.getElementById('element')
+const progressContainer = document.querySelector('.progressContainer')
+const progressBar = document.querySelector('.progressBar')
+const wrong = document.getElementById('wrong')
 
 let order = 0
 
@@ -199,6 +202,7 @@ const elements = [
 // render x amount of electrons kihile
 level.innerText = `Level ${order+1}/30`
 elementText.innerText = `Element: ${elements[order].name}`
+progressBar.setAttribute('style', `width: ${100/30 * order}%`)
 
 
 function writeSymbol () {
@@ -223,7 +227,7 @@ function clearAll() {
         electrons.forEach(electron => {
             electron.remove()
         })
-        image.setAttribute('src', `/1_kiht.png`)
+        image.setAttribute('src', `1_kiht.png`)
     i = 1
 }}
 
@@ -260,7 +264,7 @@ for (let j = 0; j<7; j++) {
 
 function createElectron(j, rot, layerNumber, offset) {
     const electron = document.createElement('img')
-    electron.setAttribute('src', '/elektron_suur.png')
+    electron.setAttribute('src', 'elektron_suur.png')
     imageContainer.appendChild(electron)
     let width = image.offsetWidth;
     let height = image.offsetHeight;
@@ -289,7 +293,7 @@ add.addEventListener('click', function () {
             inputs[i].removeAttribute('disabled', '')
             i++
         }
-        image.setAttribute('src', `/${i}_kiht.png`)
+        image.setAttribute('src', `${i}_kiht.png`)
 
     }
 
@@ -305,7 +309,7 @@ remove.addEventListener('click', function () {
             inputs[i-1].value = null
             i--
         }
-        image.setAttribute('src', `/${i}_kiht.png`)
+        image.setAttribute('src', `${i}_kiht.png`)
 
     }  
 
@@ -354,12 +358,17 @@ button.addEventListener('click', () => {
             text.remove()
         })
         writeSymbol()
+        wrong.innerText = ''
         level.innerText = `Level ${order+1}/30`
         elementText.innerText = `Element: ${elements[order].name}`
+        progressBar.setAttribute('style', `width: ${100/30 * order}%`)
+
 
 
     } else {
         console.log('incorrect')
+        wrong.innerHTML = "Vale"
+        wrong.setAttribute('style', 'color: red; text-align: center; margin-top: 20px')
     }
 })
 
