@@ -95,3 +95,21 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+
+#check {
+    border: none;
+    outline: none;
+    background: linear-gradient(90deg, #5DF275, #52A55F);
+    color: white;
+    padding: 18px 24px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 2px 2px 12px 0px #52A55F;
+    transition: all .3s ease; 
+}
+
+#check:hover {
+    transform: translateY(-5px);
+}
