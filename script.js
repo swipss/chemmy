@@ -5,6 +5,8 @@ var moving = false;
 const imageContainer = document.querySelector('.image')
 const inputs = document.querySelectorAll('input')
 const button = document.getElementById('check')
+const level = document.getElementById('level')
+const elementText = document.getElementById('element')
 
 let order = 0
 
@@ -195,6 +197,9 @@ const elements = [
 
 // votab input value
 // render x amount of electrons kihile
+level.innerText = `Level ${order+1}/30`
+elementText.innerText = `Element: ${elements[order].name}`
+
 
 function writeSymbol () {
     let width = image.offsetWidth;
@@ -218,7 +223,7 @@ function clearAll() {
         electrons.forEach(electron => {
             electron.remove()
         })
-        image.setAttribute('src', `1_kiht.png`)
+        image.setAttribute('src', `/1_kiht.png`)
     i = 1
 }}
 
@@ -284,7 +289,7 @@ add.addEventListener('click', function () {
             inputs[i].removeAttribute('disabled', '')
             i++
         }
-        image.setAttribute('src', `${i}_kiht.png`)
+        image.setAttribute('src', `/${i}_kiht.png`)
 
     }
 
@@ -300,7 +305,7 @@ remove.addEventListener('click', function () {
             inputs[i-1].value = null
             i--
         }
-        image.setAttribute('src', `${i}_kiht.png`)
+        image.setAttribute('src', `/${i}_kiht.png`)
 
     }  
 
@@ -349,6 +354,10 @@ button.addEventListener('click', () => {
             text.remove()
         })
         writeSymbol()
+        level.innerText = `Level ${order+1}/30`
+        elementText.innerText = `Element: ${elements[order].name}`
+
+
     } else {
         console.log('incorrect')
     }
@@ -359,64 +368,4 @@ button.addEventListener('click', () => {
 
 
 
-// electron.addEventListener("mousedown", initialClick, false);
 
-
-// function move(e) {
-//     // console.log("move")
-//     var newX = e.clientX - 25;
-//     var newY = e.clientY - 25;
-
-//     electron.style.left = newX + "px";
-//     electron.style.top = newY + "px";
-// }
-
-// function initialClick(e) {
-    
-//     // console.log("initialClick")
-//     electron.style.position = "absolute";
-//     electron.style.left =  e.clientX - 25 + "px";
-//     electron.style.top = e.clientY - 25 + "px";
-
-//     if(moving) {
-//         document.removeEventListener("mousemove", move);
-//         moving = !moving;
-//         // console.log(e.clientX)
-//         // console.log(e.clientY)
-
-//         // console.log(cx, cy)
-//         console.log(`x: ${e.clientX} y: ${e.clientY}`)
-//         console.log(`center x: ${cx} center y: ${cy}`)
-
-//         if (e.clientX - 25 < cx + 75 && e.clientX - 25 > cx - 75) {
-//             console.log('X')
-//         }
-
-//         if (e.clientY - 25 < cy + 75 && e.clientY - 25 > cy - 75) {
-//             // electron.style.left = 549 + 'px';
-//             // electron.style.top = 337 + 'px';
-//             console.log("Y")
-//         }
-
-//         return;
-
-//     }
-
-//     moving = !moving;
-//     electron = this;
-
-//     document.addEventListener("mousemove", move, false);
-// }
-
-// electron.addEventListener('click', function () {
-    
-// })
-
-
- 
-
-
-
-// // const kast = document.createElement('div')
-// // kast.setAttribute('style', `width: 20px; height: 20px; background: red; position: absolute; top: ${cy + 'px'}; left: ${cx + 'px'}`)
-// // imageContainer.append(kast)
