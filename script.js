@@ -10,6 +10,7 @@ const elementText = document.getElementById('element')
 const progressContainer = document.querySelector('.progressContainer')
 const progressBar = document.querySelector('.progressBar')
 const wrong = document.getElementById('wrong')
+const layers = document.getElementById('layers')
 
 let order = 0
 
@@ -197,6 +198,10 @@ const elements = [
 
 ]
 
+const sum = elements[order].answer.reduce((partialSum, a) => partialSum + a, 0);
+layers.innerText = `Elektronid: ${sum}`
+
+
 
 // votab input value
 // render x amount of electrons kihile
@@ -362,6 +367,9 @@ button.addEventListener('click', () => {
         level.innerText = `Level ${order+1}/30`
         elementText.innerText = `Element: ${elements[order].name}`
         progressBar.setAttribute('style', `width: ${100/30 * order}%`)
+        const sum = elements[order].answer.reduce((partialSum, a) => partialSum + a, 0);
+        layers.innerText = `Elektronid: ${sum}`
+        
 
 
 
