@@ -96,7 +96,7 @@ a {
     cursor: pointer;
 }
 
-#check {
+.forms button {
     border: none;
     outline: none;
     background: linear-gradient(90deg, #5DF275, #52A55F);
@@ -110,6 +110,6 @@ a {
     transition: all .3s ease; 
 }
 
-#check:hover {
+.forms button:hover {
     transform: translateY(-5px);
 }
